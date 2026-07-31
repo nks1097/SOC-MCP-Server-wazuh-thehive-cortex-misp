@@ -130,3 +130,143 @@ O **SOC MCP Server** disponibiliza 68 ferramentas organizadas por modulo funcion
 | 66 | docker_logs | Docker | Coleta de logs operacionais em tempo real dos servicos |
 | 67 | docker_restart | Docker | Reinicio controlado dos servicos SOC (Wazuh, TheHive, MISP) |
 | 68 | ssh_execute | Administration | Execucao de comandos administrativos autorizados via SSH |
+
+---
+
+## Instalacao e Configuracao
+
+### Pre-requisitos
+
+- Python 3.11 ou superior
+- Acesso as APIs do Wazuh, TheHive, Cortex e MISP
+- Credenciais de acesso configuradas no arquivo .env
+
+### 1. Clonar o repositorio
+
+```bash
+git clone https://github.com/nks1097/SOC-MCP-Server-wazuh-thehive-cortex-misp.git
+cd SOC-MCP-Server-wazuh-thehive-cortex-misp
+```
+
+### 2. Criar e ativar o ambiente virtual
+
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+```
+
+### 3. Instalar as dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configurar as variaveis de ambiente
+
+Copie o modelo e edite com suas credenciais:
+
+```bash
+cp .env.example .env
+```
+
+Edite o arquivo .env com os dados da sua infraestrutura:
+
+```env
+# Wazuh
+WAZUH_HOST=https://192.168.0.100:55000
+WAZUH_USER=wazuh-wui
+WAZUH_PASS=sua_senha_wazuh
+
+# TheHive
+THEHIVE_URL=http://192.168.0.100:9000
+THEHIVE_API_KEY=sua_chave_api_thehive
+
+# Cortex
+CORTEX_URL=http://192.168.0.100:9001
+CORTEX_API_KEY=sua_chave_api_cortex
+
+# MISP
+MISP_URL=https://192.168.0.100
+MISP_API_KEY=sua_chave_api_misp
+```
+
+### 5. Iniciar o servidor MCP
+
+```bash
+python start_mcp.py
+```
+
+---
+
+## Integracao com Clientes MCP
+
+### Antigravity IDE
+
+Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "soc-mcp-server": {
+      "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Caminho\\Para\\SOC-MCP-Server\\start_mcp.py"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "CRITICAL",
+        "FASTMCP_SHOW_SERVER_BANNER": "false",
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}
+```
+
+### LM Studio / Claude Desktop
+
+```json
+{
+  "mcpServers": {
+    "soc-mcp-server": {
+      "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Caminho\\Para\\SOC-MCP-Server\\start_mcp.py"
+      ]
+    }
+  }
+}
+```
+
+---
+
+## Estrutura do Projeto
+
+```text
+SOC-MCP-Server/
+|-- src/
+|   |-- config/          # Configuracoes Pydantic e variaveis de ambiente
+|   |-- core/            # Clientes assincronos HTTP e SSH base
+|   |-- models/          # Modelos de dados Pydantic (Alertas, IOCs, Casos)
+|   |-- integrations/    # Modulos de integracao (Wazuh, TheHive, Cortex, MISP, Docker)
+|   |-- reports/         # Geradores de relatorios Markdown
+|   |-- tools/           # Ferramentas expostas ao protocolo MCP (68 tools)
+|   |-- workflows/       # Logica do Playbook SOAR de resposta a incidentes
+|   +-- main.py          # Ponto de entrada do FastMCP
+|-- start_mcp.py         # Script principal de inicializacao
+|-- Dockerfile           # Imagem Docker
+|-- docker-compose.yml   # Orquestracao Docker Compose
+|-- .env.example         # Modelo de variaveis de ambiente
+|-- requirements.txt     # Dependencias Python
++-- testes/              # Suite de testes unitarios e de integracao
+```
+
+---
+
+## Licenca
+
+Distribuido sob a licenca **Apache 2.0**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
