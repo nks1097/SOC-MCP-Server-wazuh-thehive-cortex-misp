@@ -302,8 +302,18 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
   }
 }
 ```
+### ChatGPT Codex
 
----
+Adicione ao arquivo `C:\Users\<SeuUsuario>\.codex\config.toml`:
+
+```json
+[mcp_servers.soc-ai]
+command = "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\.venv\\Scripts\\python.exe"
+args = [
+  "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\start_mcp.py",
+]
+
+```
 
 ## Estrutura do Projeto
 
