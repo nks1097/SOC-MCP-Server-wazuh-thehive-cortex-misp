@@ -276,7 +276,7 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
     "soc-mcp-server": {
       "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
       "args": [
-        "C:\\Caminho\\Para\\SOC-MCP-Server\\start_mcp.py"
+        "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\start_mcp.py"
       ],
       "env": {
         "FASTMCP_LOG_LEVEL": "CRITICAL",
@@ -296,7 +296,7 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
     "soc-mcp-server": {
       "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
       "args": [
-        "C:\\Caminho\\Para\\SOC-MCP-Server\\start_mcp.py"
+        "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\start_mcp.py"
       ]
     }
   }
