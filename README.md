@@ -33,9 +33,9 @@ Através do playbook orquestrado, o servidor executa automaticamente:
 
 ---
 
-## Catalogo de Ferramentas MCP (68 Tools)
+## Catalogo de Ferramentas MCP (70 Tools)
 
-O **SOC MCP Server** disponibiliza 68 ferramentas organizadas por modulo funcional para automacao SOAR, resposta a incidentes e inteligencia de ameacas:
+O **SOC MCP Server** disponibiliza 70 ferramentas organizadas por modulo funcional para automacao SOAR, resposta a incidentes e inteligencia de ameacas:
 
 ### 1. Telemetria, SIEM e EDR (Wazuh)
 
@@ -101,24 +101,26 @@ O **SOC MCP Server** disponibiliza 68 ferramentas organizadas por modulo funcion
 | 44 | atualizar_caso_thehive | TheHive 5 | Alteracao de status (Open, Resolved), tags ou TLP |
 | 45 | adicionar_observavel_thehive | TheHive 5 | Registro de IOCs (Hash, IP, URL, Dominio) no caso |
 | 46 | obter_observaveis_thehive | TheHive 5 | Enumeracao de todos os IOCs vinculados a um caso |
-| 47 | listar_analisadores_cortex | Cortex | Exibe analisadores disponiveis (VirusTotal, Shodan) |
-| 48 | executar_analise_cortex | Cortex | Submete IOCs para analise automatizada no Cortex |
-| 49 | buscar_misp | MISP CTI | Pesquisa de indicadores de comprometimento no MISP |
-| 50 | publicar_evento_misp | MISP CTI | Exportacao e compartilhamento de eventos no MISP |
-| 51 | verificar_reputacao_ioc | CTI Global | Consulta global de reputacao de IOCs |
-| 52 | investigar_alerta_wazuh | SOAR Flow | Correlacao entre Wazuh + TheHive + Cortex + MISP |
-| 53 | responder_incidente_soc | SOAR Flow | Fluxo de contencao e gestao de incidente em 1-clique |
-| 54 | cacada_ameacas_threat_hunting | Threat Hunting | Varredura pro-ativa de TTPs da matriz MITRE |
-| 55 | investigar_ip | Forensic | Investigacao aprofundada de reputacao e trafego de IPs |
-| 56 | investigar_hash | Forensic | Consulta forense de reputacao de hashes (SHA256/MD5) |
-| 57 | investigar_dominio | Forensic | Analise DNS, WHOIS e reputacao de dominios |
-| 58 | investigar_host | Forensic | Diagnostico completo de integridade e risco de um host |
-| 59 | triagem_alerta | AI Triage | Triagem automatica com veredito (TP/FP) |
-| 60 | explicar_mitre | MITRE ATT-CK | Mapeamento de taticas e tecnicas MITRE ATT-CK |
-| 61 | cacada_ip | Threat Hunting | Busca de rastros de um IP em toda a telemetria |
-| 62 | cacada_hash | Threat Hunting | Caca pro-ativa por hashes maliciosos nos agentes |
-| 63 | gerar_relatorios_incidente | Reporting | Geracao de relatorios forenses em Markdown/PDF |
-| 64 | gerar_relatorio_seguranca | Reporting | Relatorio de postura de seguranca e conformidade |
+| 47 | obter_alertas_thehive | TheHive 5 | Busca/lista de alertas de segurança registrados no TheHive |
+| 48 | obter_tarefas_thehive | TheHive 5 | Busca/lista de tarefas de incidentes no TheHive |
+| 49 | listar_analisadores_cortex | Cortex | Exibe analisadores disponiveis (VirusTotal, Shodan) |
+| 50 | executar_analise_cortex | Cortex | Submete IOCs para analise automatizada no Cortex |
+| 51 | buscar_misp | MISP CTI | Pesquisa de indicadores de comprometimento no MISP |
+| 52 | publicar_evento_misp | MISP CTI | Exportacao e compartilhamento de eventos no MISP |
+| 53 | verificar_reputacao_ioc | CTI Global | Consulta global de reputacao de IOCs |
+| 54 | investigar_alerta_wazuh | SOAR Flow | Correlacao entre Wazuh + TheHive + Cortex + MISP |
+| 55 | responder_incidente_soc | SOAR Flow | Fluxo de contencao e gestao de incidente em 1-clique |
+| 56 | cacada_ameacas_threat_hunting | Threat Hunting | Varredura pro-ativa de TTPs da matriz MITRE |
+| 57 | investigar_ip | Forensic | Investigacao aprofundada de reputacao e trafego de IPs |
+| 58 | investigar_hash | Forensic | Consulta forense de reputacao de hashes (SHA256/MD5) |
+| 59 | investigar_dominio | Forensic | Analise DNS, WHOIS e reputacao de dominios |
+| 60 | investigar_host | Forensic | Diagnostico completo de integridade e risco de um host |
+| 61 | triagem_alerta | AI Triage | Triagem automatica com veredito (TP/FP) |
+| 62 | explicar_mitre | MITRE ATT-CK | Mapeamento de taticas e tecnicas MITRE ATT-CK |
+| 63 | cacada_ip | Threat Hunting | Busca de rastros de um IP em toda a telemetria |
+| 64 | cacada_hash | Threat Hunting | Caca pro-ativa por hashes maliciosos nos agentes |
+| 65 | gerar_relatorios_incidente | Reporting | Geracao de relatorios forenses em Markdown/PDF |
+| 66 | gerar_relatorio_seguranca | Reporting | Relatorio de postura de seguranca e conformidade |
 
 ---
 
@@ -126,10 +128,10 @@ O **SOC MCP Server** disponibiliza 68 ferramentas organizadas por modulo funcion
 
 | No | Ferramenta MCP | Categoria | Descricao Operacional |
 | :---: | :--- | :---: | :--- |
-| 65 | docker_ps | Docker | Monitoramento dos conteineres ativos da pilha SOC |
-| 66 | docker_logs | Docker | Coleta de logs operacionais em tempo real dos servicos |
-| 67 | docker_restart | Docker | Reinicio controlado dos servicos SOC (Wazuh, TheHive, MISP) |
-| 68 | ssh_execute | Administration | Execucao de comandos administrativos autorizados via SSH |
+| 67 | docker_ps | Docker | Monitoramento dos conteineres ativos da pilha SOC |
+| 68 | docker_logs | Docker | Coleta de logs operacionais em tempo real dos servicos |
+| 69 | docker_restart | Docker | Reinicio controlado dos servicos SOC (Wazuh, TheHive, MISP) |
+| 70 | ssh_execute | Administration | Execucao de comandos administrativos autorizados via SSH |
 
 ---
 

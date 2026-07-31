@@ -89,6 +89,25 @@ async def obter_observaveis_thehive(case_id: str) -> List[Dict[str, Any]]:
     client = get_thehive()
     return await client.get_observables(case_id=case_id)
 
+@mcp.tool()
+async def obter_alertas_thehive(alert_id: str = None, limit: int = 10) -> Any:
+    """Busca alertas do TheHive. Se alert_id for informado, retorna os detalhes do alerta específico, caso contrário lista os mais recentes."""
+    client = get_thehive()
+    if alert_id:
+        return await client.get_alert(alert_id)
+    return await client.list_alerts(limit=limit)
+
+@mcp.tool()
+async def obter_tarefas_thehive(task_id: str = None, case_id: str = None, limit: int = 10) -> Any:
+    """Busca tarefas do TheHive. Se task_id for informado, retorna a tarefa específica. Se case_id for informado, retorna as tarefas daquele caso. Caso contrário, lista as tarefas mais recentes."""
+    client = get_thehive()
+    if task_id:
+        return await client.get_task(task_id)
+    elif case_id:
+        return await client.get_case_tasks(case_id)
+    return await client.list_tasks(limit=limit)
+
+
 
 # --- Ferramentas Cortex ---
 

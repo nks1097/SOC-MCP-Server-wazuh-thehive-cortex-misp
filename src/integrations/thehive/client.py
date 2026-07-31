@@ -115,5 +115,39 @@ class TheHiveClient:
         response = await self.client.get(f"/api/case/{case_id}/artifact")
         return response
 
+    async def list_alerts(self, limit: int = 10) -> List[Dict[str, Any]]:
+        """List alerts from TheHive."""
+        response = await self.client.get(f"/api/alert?sort=-createdAt&limit={limit}")
+        logger.info(f"Fetched {len(response)} alerts from TheHive")
+        return response
+
+    async def get_alert(self, alert_id: str) -> Dict[str, Any]:
+        """Get a specific alert from TheHive by ID."""
+        response = await self.client.get(f"/api/alert/{alert_id}")
+        return response
+
+    async def list_tasks(self, limit: int = 10) -> List[Dict[str, Any]]:
+        """List recent tasks from TheHive."""
+        response = await self.client.get(f"/api/case/task?sort=-createdAt&limit={limit}")
+        logger.info(f"Fetched {len(response)} tasks from TheHive")
+        return response
+
+    async def get_task(self, task_id: str) -> Dict[str, Any]:
+        """Get a specific task from TheHive by ID."""
+        response = await self.client.get(f"/api/case/task/{task_id}")
+        return response
+
+    async def get_case_tasks(self, case_id: str) -> List[Dict[str, Any]]:
+        """Get all tasks for a specific case."""
+        query_body = {
+            "query": [
+                {"_name": "getCase", "idOrName": case_id},
+                {"_name": "tasks"}
+            ]
+        }
+        response = await self.client.post("/api/v1/query", json=query_body)
+        logger.info(f"Fetched tasks for case {case_id} using query API")
+        return response
+
     async def close(self):
         await self.client.close()
