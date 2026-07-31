@@ -122,92 +122,106 @@ Wazuh-MCP-Server/
 Distribuído sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 
-## 🛠️ Catálogo Completo das Ferramentas MCP (60+ Tools Disponíveis)
 
-O **SOC MCP Server** disponibiliza um ecossistema completo de ferramentas categorizadas para automação SOAR, resposta a incidentes e inteligência de ameaças:
 
-### 🛡️ 1. Wazuh EDR / SIEM (Telemetria, Vulnerabilidades e Monitoramento)
-- obter_alertas_wazuh: Consulta alertas e eventos de segurança no Wazuh.
-- obter_resumo_alertas_wazuh: Obtém estatísticas e agregação de alertas por severidade.
-- obter_agentes_wazuh: Lista todos os agentes registrados na infraestrutura.
-- obter_agentes_ativos_wazuh: Retorna apenas os agentes online no cluster.
-- erificar_saude_agente: Checa status, conectividade e versão do agente.
-- obter_inventario_sistema_agente: Coleta hardware, SO, portas e pacotes do agente.
-- obter_processos_agente: Enumera os processos em execução no host cliente.
-- obter_portas_agente: Lista portas de rede abertas e escutando no agente.
-- obter_configuracao_agente: Consulta as configurações ativas do agente Wazuh.
-- obter_vulnerabilidades_wazuh: Retorna vulnerabilidades detectadas (CVEs).
-- obter_vulnerabilidades_criticas_wazuh: Filtra apenas vulnerabilidades Críticas/Altas.
-- obter_detalhes_vulnerabilidade_wazuh: Detalha métricas CVSS e correções de uma CVE.
-- obter_dados_cti_cve_wazuh: Consulta inteligência de ameaças sobre uma CVE.
-- obter_regras_wazuh: Consulta o catálogo de regras de detecção.
-- obter_detalhes_regra_wazuh: Exibe a definição XML e severidade de uma regra.
-- uscar_eventos_fim: Busca eventos de integridade de arquivos (FIM/Syscheck).
-- uscar_eventos_seguranca: Filtra logs de auditoria e segurança por termo.
-- obter_saude_cluster_wazuh: Monitora a saúde e nós do cluster do Manager.
-- obter_informacoes_gerenciador_wazuh: Retorna versão e estatísticas do Manager.
-- uscar_logs_gerenciador_wazuh: Consulta os logs internos do gerenciador Wazuh.
-- obter_logs_erro_gerenciador_wazuh: Filtra erros e alertas críticos do gerenciador.
-- nalisar_padroes_alertas: Identifica anomalias e picos de alertas.
-- nalisar_ameaca_seguranca: Executa análise heurística de eventos de ameaça.
-- obter_principais_ameacas_seguranca: Lista os top vetores de ataque detectados.
-- alidar_conexao_wazuh: Valida a conectividade da API REST e credenciais.
+## 🛠️ Catálogo de Ferramentas MCP (70 Tools Disponíveis)
 
-### ⚡ 2. Resposta Ativa & Contenção no Wazuh (Active Response)
-- isolar_host_wazuh: Executa o isolamento de rede do agente afetado.
-- desisolar_host_wazuh: Restaura a conectividade de rede do host.
-- loquear_ip_wazuh: Bloqueia um IP malicioso no firewall do host alvo.
-- permitir_firewall_wazuh: Remove o bloqueio de um IP no firewall.
-- loquear_firewall_wazuh: Aplica regra customizada de bloqueio de porta/IP.
-- encerrar_processo_wazuh: Termina a execução de um processo suspeito (PID/Nome).
-- quarentena_arquivo_wazuh: Move um arquivo malicioso para a quarentena isolada.
-- 
-estaurar_arquivo_wazuh: Restaura um arquivo da quarentena de volta ao disco.
-- desabilitar_usuario_wazuh: Desabilita uma conta de usuário comprometida.
-- habilitar_usuario_wazuh: Reabilita uma conta de usuário.
-- 
-einiciar_servico_wazuh: Reinicia um serviço do sistema ou o próprio agente.
-- 
-esposta_ativa_wazuh: Dispara scripts customizados de Active Response.
-- executar_comando_resposta_ativa_wazuh: Executa comandos arbitrários autorizados.
-- executar_avaliacao_risco: Calcula o Risk Score dinâmico do ativo.
-- executar_teste_conformidade: Valida conformidade contra benchmarks CIS / PCI-DSS.
+O **SOC MCP Server** disponibiliza 70 ferramentas organizadas em tabelas por módulo funcional para automação SOAR, resposta a incidentes e inteligência de ameaças:
 
-### 🐝 3. TheHive 5 (Gestão de Casos e Incidentes)
-- criar_caso_thehive: Abre um novo caso de incidente no TheHive.
-- listar_casos_thehive: Consulta a lista de casos abertos e encerrados.
-- obter_caso_thehive: Detalha a severidade, descrição e status de um caso.
-- tualizar_caso_thehive: Altera status (Open, Resolved), severidade ou tags.
-- dicionar_observavel_thehive: Registra IOCs (IP, Hash, URL, Domínio) no caso.
-- obter_observaveis_thehive: Lista todos os observáveis associados ao caso.
+### 🛡️ 1. Telemetria, SIEM & EDR (Wazuh)
 
-### 🔬 4. Cortex (Análise Automatizada de Observáveis)
-- listar_analisadores_cortex: Lista analisadores ativos (VirusTotal, Shodan, AbuseIPDB).
-- executar_analise_cortex: Dispara análise automatizada sobre um IOC.
+| Nº | Ferramenta MCP | Módulo | Descrição Operacional |
+| :---: | :--- | :---: | :--- |
+| **01** | obter_alertas_wazuh | Wazuh SIEM | Consulta alertas e eventos de segurança com filtros avançados. |
+| **02** | obter_resumo_alertas_wazuh | Wazuh SIEM | Agregação estatística de alertas por severidade e nível. |
+| **03** | obter_agentes_wazuh | Wazuh EDR | Lista todos os agentes registrados na infraestrutura. |
+| **04** | obter_agentes_ativos_wazuh | Wazuh EDR | Filtra apenas os agentes online e ativos no cluster. |
+| **05** | erificar_saude_agente | Wazuh EDR | Diagnóstico de conectividade, versão e status do agente. |
+| **06** | obter_inventario_sistema_agente | Wazuh Syscollector | Coleta hardware, sistema operacional, portas e pacotes. |
+| **07** | obter_processos_agente | Wazuh Syscollector | Enumeração em tempo real dos processos ativos no host. |
+| **08** | obter_portas_agente | Wazuh Syscollector | Lista portas de rede abertas e serviços em escuta. |
+| **09** | obter_configuracao_agente | Wazuh Agent | Exibe as configurações ativas e módulos do agente. |
+| **10** | obter_vulnerabilidades_wazuh | Wazuh Vulnerability | Retorna relatórios de CVEs detectadas nos ativos. |
+| **11** | obter_vulnerabilidades_criticas_wazuh | Wazuh Vulnerability | Filtra apenas vulnerabilidades com severidade Crítica/Alta. |
+| **12** | obter_detalhes_vulnerabilidade_wazuh | Wazuh Vulnerability | Métricas CVSS, descrição e orientações de correção da CVE. |
+| **13** | obter_dados_cti_cve_wazuh | Wazuh CTI | Consulta inteligência de ameaças associada a uma CVE. |
+| **14** | obter_regras_wazuh | Wazuh Rules | Consulta o catálogo completo de regras de detecção. |
+| **15** | obter_detalhes_regra_wazuh | Wazuh Rules | Exibe a definição XML, grupo e severidade de uma regra. |
+| **16** | uscar_eventos_fim | Wazuh FIM | Monitoramento de Integridade de Arquivos (Syscheck). |
+| **17** | uscar_eventos_seguranca | Wazuh Audit | Busca em logs de auditoria e segurança por termo. |
+| **18** | obter_saude_cluster_wazuh | Wazuh Cluster | Monitora a saúde, carga e nós do cluster do Manager. |
+| **19** | obter_informacoes_gerenciador_wazuh | Wazuh Manager | Estatísticas e versão do gerenciador Wazuh. |
+| **20** | uscar_logs_gerenciador_wazuh | Wazuh Logs | Consulta logs operacionais internos do Manager. |
+| **21** | obter_logs_erro_gerenciador_wazuh | Wazuh Logs | Filtra erros críticos no gerenciador Wazuh. |
+| **22** | nalisar_padroes_alertas | Wazuh Analytics | Identificação de picos e anomalias de ataques no tempo. |
+| **23** | nalisar_ameaca_seguranca | Wazuh Analytics | Análise heurística de eventos de ameaça. |
+| **24** | obter_principais_ameacas_seguranca | Wazuh Analytics | Ranking das maiores ameaças detectadas na rede. |
+| **25** | alidar_conexao_wazuh | System Check | Valida a autenticação e conectividade da API REST. |
 
-### 🌐 5. MISP (Threat Intelligence Sharing)
-- uscar_misp: Pesquisa eventos de ameaças e IOCs na base do MISP.
-- publicar_evento_misp: Exporta e compartilha novos IOCs no barramento do MISP.
-- erificar_reputacao_ioc: Consulta a reputação global de um IOC nas bases CTI.
+---
 
-### 🎯 6. Orquestração SOC & Threat Hunting Integrado
-- investigar_alerta_wazuh: Correlação completa entre Wazuh + TheHive + Cortex + MISP.
-- 
-esponder_incidente_soc: Orquestração de resposta em 1-clique (Contenção + Caso).
-- cacada_ameacas_threat_hunting: Executa varreduras pró-ativas de TTPs MITRE.
-- investigar_ip: Análise aprofundada de reputação e tráfego de um IP.
-- investigar_hash: Consulta de reputação de hashes de arquivos (SHA256/MD5).
-- investigar_dominio: Análise DNS, WHOIS e reputação de domínios.
-- investigar_host: Diagnóstico completo de segurança de um endpoint.
-- 	riagem_alerta: Triagem automática de alertas com veredito (TP/FP).
-- explicar_mitre: Mapeia táticas e técnicas da matriz MITRE ATT&CK.
-- cacada_ip: Busca rastros de um IP em toda a telemetria do ambiente.
-- cacada_hash: Variação pró-ativa por hashes maliciosos nos agentes.
-- gerar_relatorios_incidente: Gera relatórios forenses em Markdown/PDF.
-- gerar_relatorio_seguranca: Emite relatórios de postura de segurança e conformidade.
+### ⚡ 2. Resposta Ativa & Contenção Forense (Active Response)
 
-### 🐳 7. Gestão de Infraestrutura Docker & SSH
-- docker_ps: Lista contêineres ativos na infraestrutura SOC.
-- docker_logs: Coleta logs de serviços Docker em tempo real.
-- docker_restart: Reinicia serviços da pilha SOC (Wazuh/TheHive/Cortex/MISP).
-- ssh_execute: Executa comandos de gestão remota autorizada via SSH.
+| Nº | Ferramenta MCP | Ação SOAR | Descrição Operacional |
+| :---: | :--- | :---: | :--- |
+| **26** | isolar_host_wazuh | Contenção | Bloqueio total de rede do ativo comprometido. |
+| **27** | desisolar_host_wazuh | Restauração | Restauração da conectividade de rede do host. |
+| **28** | loquear_ip_wazuh | Firewall | Bloqueio de IP atacante no firewall do agente. |
+| **29** | permitir_firewall_wazuh | Firewall | Liberação de regras de IP no firewall. |
+| **30** | loquear_firewall_wazuh | Firewall | Aplicação de regra customizada de firewall. |
+| **31** | encerrar_processo_wazuh | Process Kill | Encerramento imediato de processo malicioso (PID/Nome). |
+| **32** | quarentena_arquivo_wazuh | Quarentena | Mover arquivos maliciosos para a quarentena isolada. |
+| **33** | 
+estaurar_arquivo_wazuh | Quarentena | Restauração de arquivo da quarentena ao disco. |
+| **34** | desabilitar_usuario_wazuh | Identity | Desativação imediata de conta de usuário comprometida. |
+| **35** | habilitar_usuario_wazuh | Identity | Reativação de conta de usuário. |
+| **36** | 
+einiciar_servico_wazuh | Service | Reinicialização de serviços ou do agente Wazuh. |
+| **37** | 
+esposta_ativa_wazuh | Script Exec | Disparo de scripts customizados de Active Response. |
+| **38** | executar_comando_resposta_ativa_wazuh | Command Exec | Execução controlada de comandos de resposta. |
+| **39** | executar_avaliacao_risco | Risk Analysis | Cálculo de Risk Score dinâmico do ativo (0-100). |
+| **40** | executar_teste_conformidade | Compliance | Auditoria contra padrões CIS / PCI-DSS / HIPAA. |
+
+---
+
+### 🐝 3. TheHive 5, Cortex, MISP & Threat Hunting
+
+| Nº | Ferramenta MCP | Integração | Descrição Operacional |
+| :---: | :--- | :---: | :--- |
+| **41** | criar_caso_thehive | TheHive 5 | Abertura automatizada de casos de incidentes. |
+| **42** | listar_casos_thehive | TheHive 5 | Consulta da fila de casos abertos e encerrados. |
+| **43** | obter_caso_thehive | TheHive 5 | Detalhes de severidade, histórico e status de um caso. |
+| **44** | tualizar_caso_thehive | TheHive 5 | Alteração de status (Open, Resolved), tags ou TLP. |
+| **45** | dicionar_observavel_thehive | TheHive 5 | Registro de IOCs (Hash, IP, URL, Domínio) no caso. |
+| **46** | obter_observaveis_thehive | TheHive 5 | Enumeração de todos os IOCs vinculados a um caso. |
+| **47** | listar_analisadores_cortex | Cortex | Exibe analisadores disponíveis (VirusTotal, Shodan). |
+| **48** | executar_analise_cortex | Cortex | Submete IOCs para análise automatizada no Cortex. |
+| **49** | uscar_misp | MISP CTI | Pesquisa de indicadores de comprometimento no MISP. |
+| **50** | publicar_evento_misp | MISP CTI | Exportação e compartilhamento de eventos no MISP. |
+| **51** | erificar_reputacao_ioc | CTI Global | Consulta global de reputação de IOCs. |
+| **52** | investigar_alerta_wazuh | SOAR Flow | Correlação entre Wazuh + TheHive + Cortex + MISP. |
+| **53** | 
+esponder_incidente_soc | SOAR Flow | Fluxo de contenção e gestão de incidente em 1-clique. |
+| **54** | cacada_ameacas_threat_hunting | Threat Hunting | Varredura pró-ativa de TTPs da matriz MITRE. |
+| **55** | investigar_ip | Forensic | Investigação aprofundada de reputação e tráfego de IPs. |
+| **56** | investigar_hash | Forensic | Consulta forense de reputação de hashes (SHA256/MD5). |
+| **57** | investigar_dominio | Forensic | Análise DNS, WHOIS e reputação de domínios. |
+| **58** | investigar_host | Forensic | Diagnóstico completo de integridade e risco de um host. |
+| **59** | 	riagem_alerta | AI Triage | Triagem automática com veredito (TP/FP). |
+| **60** | explicar_mitre | ATT&CK | Mapeamento de táticas e técnicas MITRE ATT&CK. |
+| **61** | cacada_ip | Threat Hunting | Busca de rastros de um IP em toda a telemetria. |
+| **62** | cacada_hash | Threat Hunting | Caça pró-ativa por hashes maliciosos nos agentes. |
+| **63** | gerar_relatorios_incidente | Reporting | Geração de relatórios forenses em Markdown/PDF. |
+| **64** | gerar_relatorio_seguranca | Reporting | Relatório de postura de segurança e conformidade. |
+
+---
+
+### 🐳 4. Gestão de Infraestrutura Docker & SSH
+
+| Nº | Ferramenta MCP | Categoria | Descrição Operacional |
+| :---: | :--- | :---: | :--- |
+| **65** | docker_ps | Docker | Monitoramento dos contêineres ativos da pilha SOC. |
+| **66** | docker_logs | Docker | Coleta de logs operacionais em tempo real dos serviços. |
+| **67** | docker_restart | Docker | Reinício controlado dos serviços SOC (Wazuh, TheHive, MISP). |
+| **68** | ssh_execute | Administration | Execução de comandos administrativos autorizados via SSH. |
