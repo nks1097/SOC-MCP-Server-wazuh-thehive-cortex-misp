@@ -255,7 +255,10 @@ WAZUH_INDEXER_USER=ALTERE_SEU_USUARIO
 WAZUH_INDEXER_PASS=ALTERE_SUA_SENHA
 WAZUH_INDEXER_PORT=9200
 ```
-
+ * Exemplo das configuraçoes do arquivo .env
+     
+     ![.env](docs/imagens/2.png)
+   
 ### 5. Iniciar o servidor MCP
 
 ```bash
@@ -288,6 +291,10 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
 }
 ```
 
+   * imagem de Exemplo de configuração mcp_config.json para o Antigravity IDE
+
+   ![Configuração mcp_config.json na Antigravity IDE](docs/imagens/config_antigravity_json.png)
+
 ### LM Studio / Claude Desktop
 
 ```json
@@ -303,6 +310,10 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
 }
 ```
 
+* imagem de Exemplo de configuração mcp_config.json para o LM Studio
+   
+   ![Configuração mcpServers no LM Studio](docs/imagens/config_lmstudio_json.png)
+
 ### ChatGPT Codex
 
 Adicione ao arquivo `C:\Users\<SeuUsuario>\.codex\config.toml`:
@@ -315,6 +326,10 @@ args = [
 ]
 
 ```
+
+* imagem de Exemplo de configuração mcp_config.json para o codex
+   
+   ![Configuração config.toml no ChatGPT Codex](docs/imagens/config_codex_toml.png)
 
 ## Estrutura do Projeto
 
