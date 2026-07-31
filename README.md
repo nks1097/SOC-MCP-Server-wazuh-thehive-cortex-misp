@@ -329,7 +329,7 @@ args = [
 
 * imagem de Exemplo de configuração mcp_config.json para o codex
    
-   ![Configuração config.toml no ChatGPT Codex](docs/imagens/config_codex_toml.png)
+   ![Configuração config.toml no ChatGPT Codex](docs/imagens/3.png)
 
 ## Estrutura do Projeto
 
