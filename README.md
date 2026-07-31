@@ -274,7 +274,7 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
 {
   "mcpServers": {
     "soc-mcp-server": {
-      "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
+      "command": "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\.venv\\Scripts\\python.exe",
       "args": [
         "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\start_mcp.py"
       ],
@@ -294,7 +294,7 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
 {
   "mcpServers": {
     "soc-mcp-server": {
-      "command": "C:\\Caminho\\Para\\.venv\\Scripts\\python.exe",
+      "command": "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\.venv\\Scripts\\python.exe",
       "args": [
         "C:\\Caminho\\Para\\SOC-MCP-Server-wazuh-thehive-cortex-misp\\start_mcp.py"
       ]
