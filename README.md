@@ -302,6 +302,7 @@ Adicione ao arquivo `C:\Users\<SeuUsuario>\.gemini\config\mcp_config.json`:
   }
 }
 ```
+
 ### ChatGPT Codex
 
 Adicione ao arquivo `C:\Users\<SeuUsuario>\.codex\config.toml`:
